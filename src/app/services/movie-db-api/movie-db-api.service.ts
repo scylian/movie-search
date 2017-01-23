@@ -1,11 +1,12 @@
-import { Injectable }   from '@angular/core';
-import { Http, Jsonp }  from '@angular/http';
+import { Injectable } from '@angular/core';
+import { Http, Jsonp, URLSearchParams, Response } from '@angular/http';
 
 // Import rxjs operator to output result as a promise
+import { Observable } from 'rxjs';
 import 'rxjs/add/operator/toPromise';
 
 // Import Movie class
-import { Movie }        from '../../classes/movie';
+import { Movie }  from '../../classes/movie';
 
 @Injectable()
 export class MovieDbApiService {
@@ -17,13 +18,22 @@ export class MovieDbApiService {
     private jsonp: Jsonp) { }
   
   // Method for returning list of queried movies
-  getMovies(): Promise<Movie[]> {
-    const url = `${this.apiUrl}/?api_key=${this.apiKey}&query=troll&callback=JSONP_CALLBACK`;
+  getMovies(query: string): Promise<Movie[]> {
+    const url = `${this.apiUrl}/?api_key=${this.apiKey}&query=${query}&callback=JSONP_CALLBACK`;
     
     return this.jsonp.get(url)
                .toPromise()
                .then(response => response.json().results as Movie[])
                .catch(this.handleError);
+  }
+  
+  search(term: string): Observable<Movie[]> {
+    var search = new URLSearchParams();
+    search.set('api_key', this.apiKey);
+    search.set('query', term);
+    search.set('callback', 'JSONP_CALLBACK');
+    return this.jsonp.get(this.apiUrl, { search })
+               .map((r: Response) => r.json().results as Movie[])
   }
   
   // Method to handle HTTP request errors

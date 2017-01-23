@@ -5,12 +5,14 @@ import { RouterModule, Routes } from '@angular/router';
 // Import Components to route to
 import { HomeComponent }        from '../../components/home/home.component';
 import { ResultsComponent }     from '../../components/results/results.component';
+import { MovieComponent }       from '../../components/movie/movie.component';
 
 // Define all route paths as a constant
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
-  { path: 'list', component: ResultsComponent }
+  { path: 'list/:term', component: ResultsComponent },
+  { path: 'movie', component: MovieComponent }
 ];
 
 

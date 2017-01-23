@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit }        from '@angular/core';
+import { ActivatedRoute, Params }   from '@angular/router';
 
 // Import services
 import { MovieDbApiService }  from '../../services/movie-db-api/movie-db-api.service';
@@ -16,13 +17,15 @@ export class ResultsComponent implements OnInit {
   movies: Movie[] // Define empty movies array to be filled with service
 
   constructor(
-    private movieDbApiService: MovieDbApiService) { }
+    private movieDbApiService: MovieDbApiService,
+    private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.getMovies(); // Call function that calls service inside ngOnInit() lifecycle hook
+    this.route.params
+        // query api with passed in term from search box
+        .switchMap((params: Params) => this.movieDbApiService.getMovies(params['term']))
+        // assign results to movies array
+        .subscribe(movies => this.movies = movies);
   }
   
-  getMovies(): void {
-    this.movieDbApiService.getMovies().then(movies => this.movies = movies);
-  }
 }
