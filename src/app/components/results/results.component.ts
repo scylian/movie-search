@@ -46,7 +46,7 @@ export class ResultsComponent implements OnInit {
           for (let i = 0; i < movies.length; i++) {
             setTimeout(() => {
               this.movies[i] = movies[i];
-            }, 500+i*200);
+            }, 300+i*100);
           }
         });
   }

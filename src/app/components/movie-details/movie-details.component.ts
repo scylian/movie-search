@@ -19,6 +19,7 @@ import 'rxjs/add/operator/switchMap';
 })
 export class MovieDetailsComponent implements OnInit {
   movie: Movie;
+  imgUrl: string = "http://image.tmdb.org/t/p/w500";
 
   constructor(
     private movieService: MovieDbApiService,
