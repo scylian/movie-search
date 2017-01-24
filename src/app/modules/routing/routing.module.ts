@@ -1,18 +1,20 @@
-import { NgModule }             from '@angular/core';
-import { CommonModule }         from '@angular/common';
-import { RouterModule, Routes } from '@angular/router';
+import { NgModule }               from '@angular/core';
+import { CommonModule }           from '@angular/common';
+import { RouterModule, Routes }   from '@angular/router';
 
 // Import Components to route to
-import { HomeComponent }        from '../../components/home/home.component';
-import { ResultsComponent }     from '../../components/results/results.component';
-import { MovieComponent }       from '../../components/movie/movie.component';
+import { HomeComponent }          from '../../components/home/home.component';
+import { ResultsComponent }       from '../../components/results/results.component';
+import { MovieComponent }         from '../../components/movie/movie.component';
+import { MovieDetailsComponent }  from '../../components/movie-details/movie-details.component';
 
 // Define all route paths as a constant
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   { path: 'list/:term', component: ResultsComponent },
-  { path: 'movie', component: MovieComponent }
+  { path: 'movie', component: MovieComponent },
+  { path: 'details/:id', component: MovieDetailsComponent }
 ];
 
 

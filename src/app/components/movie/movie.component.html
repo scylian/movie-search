@@ -1,10 +1,12 @@
 <div class="list-group-item col-md-3 col-lg-2">
   <div class="thumbnail">
-    <img class="list-group-image" src="{{fullUrl}}" alt="image" />
-    <div class="caption">
-      <h5 class="list-group-item-heading text-center">
-        {{ movie.title | truncate : 20 }}
-      </h5>
-    </div>
+    <a href="#" (click)="gotoDetails()">
+      <img class="list-group-image" src="{{fullUrl}}" alt="image" />
+      <div class="caption">
+        <h5 class="list-group-item-heading text-center">
+          {{ movie.title | truncate : 20 }}
+        </h5>
+      </div>
+    </a>
   </div>
 </div>

@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Router }                   from '@angular/router';
 
 // Import classes
 import { Movie }                    from '../../classes/movie';
@@ -14,10 +15,14 @@ export class MovieComponent implements OnInit {
   private imgUrl = "http://image.tmdb.org/t/p/w154";
   fullUrl: string;
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
     this.fullUrl = this.imgUrl + this.movie.poster_path;
+  }
+  
+  gotoDetails(): void {
+    this.router.navigate(['/details', this.movie.id])
   }
   
 }

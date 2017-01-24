@@ -11,6 +11,7 @@ import { Movie }  from '../../classes/movie';
 @Injectable()
 export class MovieDbApiService {
   private apiUrl = 'http://api.themoviedb.org/3/search/movie';
+  private detailsUrl = 'http://api.themoviedb.org/3/movie';
   private apiKey = '42b3e60b6636f50062f6d3579100d83f';
 
   constructor(
@@ -19,21 +20,25 @@ export class MovieDbApiService {
   
   // Method for returning list of queried movies
   getMovies(query: string): Promise<Movie[]> {
-    const url = `${this.apiUrl}/?api_key=${this.apiKey}&query=${query}&callback=JSONP_CALLBACK`;
-    
-    return this.jsonp.get(url)
+    let search = new URLSearchParams();
+    search.set('api_key', this.apiKey);
+    search.set('query', query);
+    search.set('callback', 'JSONP_CALLBACK');
+    return this.jsonp.get(this.apiUrl, { search })
                .toPromise()
                .then(response => response.json().results as Movie[])
                .catch(this.handleError);
   }
   
-  search(term: string): Observable<Movie[]> {
-    var search = new URLSearchParams();
+  getMovie(id: number): Promise<Movie> {
+    let search = new URLSearchParams();
     search.set('api_key', this.apiKey);
-    search.set('query', term);
     search.set('callback', 'JSONP_CALLBACK');
-    return this.jsonp.get(this.apiUrl, { search })
-               .map((r: Response) => r.json().results as Movie[])
+    const url = `${this.detailsUrl}/${id}`;
+    return this.jsonp.get(url, { search })
+               .toPromise()
+               .then(response => response.json() as Movie)
+               .catch(this.handleError);
   }
   
   // Method to handle HTTP request errors
