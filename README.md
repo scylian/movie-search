@@ -5,8 +5,11 @@ This site was made to specification for LoanDepot as a Code Challenge.
 ## Summary
 
 I created this site with the Angular 2 framework using Angular-CLI to generate and scaffold the project.
+
 [Cloud9](https://c9.io) was the IDE I used to build the project.
+
 While building the site, I assumed that it would be run on the latest version of Google Chrome. Angular 2 is still very new and experimental, and as such the animation components in Angular 2 do not seem to display properly in Firefox or IE.
+
 I designed the app using best-practices according to the Angular 2 documentation. Angular-CLI was very helpful in that regard.
 
 ## Prerequisites
