@@ -1,31 +1,37 @@
 # MovieSearch
 
-This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.26.
+This site was made to specification for LoanDepot as a Code Challenge.
 
-## Development server
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Summary
 
-## Code scaffolding
+I created this site with the Angular 2 framework using Angular-CLI to generate and scaffold the project.
+[Cloud9](https://c9.io) was the IDE I used to build the project.
+While building the site, I assumed that it would be run on the latest version of Google Chrome. Angular 2 is still very new and experimental, and as such the animation components in Angular 2 do not seem to display properly in Firefox or IE.
+I designed the app using best-practices according to the Angular 2 documentation. Angular-CLI was very helpful in that regard.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive/pipe/service/class/module`.
+## Prerequisites
 
-## Build
+You will need [Angular-CLI](https://github.com/angular/angular-cli) which itself requires Node 4 or higher and NPM 3 or higher.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+## Run Locally
 
-## Running unit tests
+**Before you can clone this repo and run it there are a few [prerequisites](#prerequisites) you will need.**
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+After you have the prerequesites installed, if you are running on a local environment, navigate to root and run `ng serve`.
+Open a browser and navigate to `http://localhost:4200/` and the app should be running.
 
-## Running end-to-end tests
+If you are running on a cloud environment, such as [Cloud9](https://c9.io), you will need to run `ng serve --host 0.0.0.0 --port 8080`.
+Then you may navigate to your Cloud9 preview URL.
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-Before running the tests make sure you are serving the app via `ng serve`.
+## Tools Used
 
-## Deploying to GitHub Pages
+Here is a list of all of the tools and technologies used during this project:
 
-Run `ng github-pages:deploy` to deploy to GitHub Pages.
-
-## Further help
-
-To get more help on the `angular-cli` use `ng help` or go check out the [Angular-CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+* [Angular 2](https://angular.io)
+* [Angular-CLI](https://github.com/angular/angular-cli)
+* [TypeScript](https://typescriptlang.org)
+* [Bootstrap](https://getbootstrap.com)
+* [SCSS](https://sass-lang.com)
+* [NPM](https://npmjs.com)
+* [Git](https://git-scm.com)
+* [Cloud9](https://c9.io)

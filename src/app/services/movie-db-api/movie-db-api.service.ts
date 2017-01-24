@@ -30,6 +30,7 @@ export class MovieDbApiService {
                .catch(this.handleError);
   }
   
+  // Method for returning details of a single movie
   getMovie(id: number): Promise<Movie> {
     let search = new URLSearchParams();
     search.set('api_key', this.apiKey);
