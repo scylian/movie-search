@@ -1,3 +1,16 @@
-.img-div {
-  width: 154px;
+.thumbnail {
+  border: 0;
+  
+  img {
+    width: 150px;
+  }
+}
+
+h5 {
+  font-weight: bold;
+}
+
+.list-group-item {
+  border: 0;
+  height: 310px;
 }

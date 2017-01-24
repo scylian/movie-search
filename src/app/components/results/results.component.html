@@ -1,8 +1,7 @@
-<h2>Movies</h2>
-
-<ul class="movies">
-  <!-- Iterate through movies array and display each movie template -->
-  <li *ngFor="let movie of movies">
-    <p>{{movie.title}}</p>
-  </li>
-</ul>
+<div class="container-fluid">
+  <div class="row list-group">
+    <div *ngFor="let movie of movies" [@flyInOut]="'in'">
+      <movie [movie]="movie"></movie>
+    </div>
+  </div>
+</div>

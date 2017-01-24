@@ -1,28 +1,23 @@
-import { Component, OnInit }  from '@angular/core';
-
-// Import services
-import { MovieDbApiService }  from '../../services/movie-db-api/movie-db-api.service';
+import { Component, OnInit, Input } from '@angular/core';
 
 // Import classes
-import { Movie }              from '../../classes/movie';
+import { Movie }                    from '../../classes/movie';
 
 @Component({
   moduleId: module.id,
-  selector: 'movies-list',
+  selector: 'movie',
   templateUrl: './movie.component.html',
   styleUrls: ['./movie.component.scss']
 })
 export class MovieComponent implements OnInit {
-  movies: Movie[] // Define empty movies array to be filled with service
+  @Input() movie: Movie;  // Define variable for incoming movie object
+  private imgUrl = "http://image.tmdb.org/t/p/w154";
+  fullUrl: string;
 
-  constructor(
-    private movieDbApiService: MovieDbApiService) { }
+  constructor() { }
 
   ngOnInit() {
-    this.getMovies(); // Call function that calls service inside ngOnInit() lifecycle hook
+    this.fullUrl = this.imgUrl + this.movie.poster_path;
   }
   
-  getMovies(): void {
-    this.movieDbApiService.getMovies().then(movies => this.movies = movies);
-  }
 }

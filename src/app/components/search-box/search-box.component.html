@@ -1,5 +1,8 @@
 <form class="navbar-form pull-left" role="search" (ngSubmit)="search(searchBox.value)" #searchForm="ngForm">
-  <div class="form-group">
+  <div class="input-group">
     <input #searchBox id="search-box" class="form-control" placeholder="Search Movies..."/>
+    <div class="input-group-btn">
+      <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
+    </div>
   </div>
 </form>

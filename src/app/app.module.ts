@@ -19,6 +19,9 @@ import { MovieDbApiService }        from './services/movie-db-api/movie-db-api.s
 // Imports for modules
 import { RoutingModule }            from './modules/routing/routing.module';
 
+// Imports for pipes
+import { TruncatePipe }             from './pipes/truncate/truncate.pipe';
+
 // Imports for rxjs extensions
 import './extensions/rxjs-extensions';
 
@@ -30,7 +33,8 @@ import './extensions/rxjs-extensions';
     HomeComponent,
     ResultsComponent,
     MovieDetailsComponent,
-    MovieComponent
+    MovieComponent,
+    TruncatePipe
   ],
   imports: [
     BrowserModule,
